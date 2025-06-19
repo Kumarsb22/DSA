@@ -17,6 +17,31 @@ public class BinarySearch3to5 {
 		System.out.println(lastOccBinarySearchRecu(arr, x, low, high));
 		System.out.println("find last Occurance Binary Search with Interative Approach");
 		System.out.println(lastOccIterativeBinaryseach(arr, x));
+		System.out.println("Serch element in sorted+rotated array but we dont know how many array is roated");
+		int arr2[] = { 100, 200, 500, 1000, 2000, 10, 20 };
+		int x1 = 20;
+		System.out.println(searchEleRotAr(arr2, x1));
+	}
+
+	private static int searchEleRotAr(int arr[], int x) {
+		int low = 0, high = arr.length - 1;
+		while (low <= high) {
+			int mid = (low + high) / 2;
+			if (arr[mid] == x)
+				return mid;
+			if (arr[low] <= arr[mid]) {
+				if (x >= arr[low] && x < arr[mid])
+					high = mid - 1;
+				else
+					low = mid + 1;
+			} else {
+				if (x > arr[mid] && x <= arr[high])
+					low = mid + 1;
+				else
+					high = mid - 1;
+			}
+		}
+		return -1;
 	}
 
 	private static int lastOccLinear(int arr[], int x) {
@@ -103,4 +128,5 @@ public class BinarySearch3to5 {
 		}
 		return -1;
 	}
+
 }
