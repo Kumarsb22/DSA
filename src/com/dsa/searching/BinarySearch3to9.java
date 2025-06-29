@@ -1,6 +1,6 @@
 package com.dsa.searching;
 
-public class BinarySearch3to5 {
+public class BinarySearch3to9 {
 	public static void main(String[] args) {
 		System.out.println("find first Occurance Linear Approach");
 		int arr[] = { 1, 10, 10, 10, 20, 20, 40 };
